@@ -3,7 +3,6 @@ import requests
 from urllib.parse import urlparse
 import argparse
 from dotenv import load_dotenv
-load_dotenv()
 
 
 def is_bitlink(url, token):
@@ -33,7 +32,9 @@ def count_clicks(url, token):
     return response.json()['total_clicks']
 
 
-def main():
+def main():  
+    load_dotenv()
+
     parser = argparse.ArgumentParser(description='Сокращает ссылки или показывает статистику переходов по ним')
     parser.add_argument('url', help='URL веб-страницы или короткая ссылка')
     args = parser.parse_args()
